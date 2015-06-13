@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: docs.wpbase.co | Documentation
 
 language_tabs:
   - shell
@@ -13,7 +13,7 @@ toc_footers:
 includes:
   - errors
 
-search: true
+search: false
 ---
 
 # Introduction

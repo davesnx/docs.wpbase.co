@@ -41,14 +41,19 @@ under the License.
   </head>
 
   <body class="<%= page_classes %>">
+  <header id="header" class="">
+    <h1 class="logo"><strong>wp</strong>base</h1>
+    <!-- <%= image_tag "logo.png" %> -->
     <a href="#" id="nav-button">
       <span>
         NAV
         <%= image_tag('navbar.png') %>
       </span>
     </a>
+  </header>
+  
     <div class="tocify-wrapper">
-      <%= image_tag "logo.png" %>
+      
       <% if language_tabs %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>

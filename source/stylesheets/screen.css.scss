@@ -32,9 +32,34 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @extend %default-font;
-  background-color: $main-bg;
+  background-color: $newbg;
   height: 100%;
   -webkit-text-size-adjust: none; /* Never autoresize text */
+}
+
+#header {
+  background-color: $green;
+  height: $header-height;
+  padding: 0px 25px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.logo {
+  margin: 20px 0px 0px 0px;
+  font-family: $font;
+  font-weight: 400;
+  display: inline-block;
+  color: white;
+}
+
+#toc {
+  padding: 10px;
+}
+
+* {
+  -webkit-font-smoothing: antialiased !important;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -72,11 +97,11 @@ html, body {
   overflow-x: hidden;
   position: fixed;
   z-index: 30;
-  top: 0;
+  top: $header-height;
   left: 0;
   bottom: 0;
   width: $nav-width;
-  background-color: $nav-bg;
+  background-color: $newbg;
   font-size: 13px;
   font-weight: bold;
 
@@ -154,6 +179,9 @@ html, body {
     }
   }
 
+  .tocify-header:first-child {
+    display: none !important;
+  }
 
   .tocify-item>a, .toc-footer li {
     padding: 0 $nav-padding 0 $nav-padding;
@@ -161,6 +189,10 @@ html, body {
     overflow-x: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.5px;
   }
 
   // The Table of Contents is composed of multiple nested
@@ -175,6 +207,7 @@ html, body {
 
   li {
     color: $nav-text;
+    background: $newbg;
     @include transition-property('background');
     @include transition-timing-function('linear');
     @include transition-duration(230ms);
@@ -183,19 +216,21 @@ html, body {
   // This is the currently selected ToC entry
   .tocify-focus {
     @include box-shadow(0px 1px 0px $nav-active-shadow);
-    background-color: $nav-active-bg;
-    color: $nav-active-text;
+    color: #000;
+    a {
+      font-weight: 600;
+    }
   }
 
   // Subheaders are the submenus that slide open
   // in the table of contents.
   .tocify-subheader {
     display: none; // tocify will override this when needed
-    background-color: $nav-subitem-bg;
+    background-color: $newbg;
     font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+      font-size: 11px;
     }
 
     // for embossed look:
@@ -208,7 +243,7 @@ html, body {
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
+    border-top: 1px dashed $grey;
 
     li,a {
       color: $nav-text;
@@ -272,7 +307,7 @@ html, body {
   z-index: 10;
   background-color: $main-bg;
   min-height: 100%;
-
+  top: $header-height;
   padding-bottom: 1px; // prevent margin overflow
 
   // The dark box is what gives the code samples their dark background.
@@ -287,10 +322,11 @@ html, body {
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: 90;
   }
 
   .lang-selector {
-    position: fixed;
+    position: absolute;
     z-index: 50;
     border-bottom: 5px solid $lang-select-active-bg;
   }
@@ -336,6 +372,8 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+  background-color: $newbg;
+  border-left: 1px solid $grey;
 
   &:after {
     content: '';
@@ -364,16 +402,15 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 30px;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: -0.6px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $grey;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ddd;
-    @include background-image(
-      linear-gradient(top, #fff, #f9f9f9)
-    );
+    padding-top: 90px !important;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -386,12 +423,9 @@ html, body {
     font-size: 20px;
     margin-top: 4em;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $grey;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
-    @include background-image(
-      linear-gradient(top, rgba(#fff,0.4), rgba(#fff, 0))
-    );
   }
 
   // h2s right after h1s should bump right up
@@ -430,7 +464,7 @@ html, body {
 
     th {
       padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid $grey;
       vertical-align: bottom;
     }
 
@@ -439,7 +473,7 @@ html, body {
     }
 
     tr:last-child {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #aggressivity;
     }
 
     tr:nth-child(odd)>td {
@@ -457,6 +491,10 @@ html, body {
 
   dd {
     margin-left: 15px;
+  }
+
+  p{
+    font-size: 14px;
   }
 
   p, li, dt, dd {
@@ -556,7 +594,7 @@ html, body {
     a {
       color: #fff;
       text-decoration: none;
-      border-bottom: dashed 1px #ccc;
+      border-bottom: dashed 1px $grey;
     }
   }
 
@@ -569,7 +607,7 @@ html, body {
       background-color: $code-annotation-bg;
       border-radius: 5px;
       padding: $code-annotation-padding;
-      color: #ccc;
+      color: $grey;
       border-top: 1px solid #000;
       border-bottom: 1px solid #404040;
     }
