@@ -541,10 +541,10 @@
             // Event delegation that looks for any clicks on list item elements inside of the HTML element calling the plugin
             this.element.on("click.tocify", "li", function(event) {
 
+                event.preventDefault();
+
                 if(self.options.history) {
-
                     window.location.hash = $(this).attr("data-unique");
-
                 }
 
                 // Removes highlighting from all of the list item's
@@ -1011,6 +1011,8 @@
         //      Scrolls to a specific element
         _scrollTo: function(elem) {
 
+
+
             var self = this,
                 duration = self.options.smoothScroll || 0,
                 scrollTo = self.options.scrollTo;
@@ -1019,12 +1021,13 @@
             $("html, body").promise().done(function() {
 
                 // Animates the html and body element scrolltops
-                $("html, body").animate({
+                $("html, body").stop().animate({
 
                     // Sets the jQuery `scrollTop` to the top offset of the HTML div tag that matches the current list item's `data-unique` tag
                     "scrollTop": $('div[data-unique="' + elem.attr("data-unique") + '"]').next().offset().top - ($.isFunction(scrollTo) ? scrollTo.call() : scrollTo) + "px"
+                    // $('div[data-unique="' + elem.attr("data-unique") + '"]').next().offset().top - ($.isFunction(scrollTo) ? scrollTo.call() : scrollTo) + "px"
 
-                }, {
+                },{
 
                     // Sets the smoothScroll animation time duration to the smoothScrollSpeed option
                     "duration": duration

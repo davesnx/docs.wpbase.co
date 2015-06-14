@@ -16,14 +16,14 @@ search: false
 
 # Introduction
 
+Welcome to the documentation of **api.wpbase.co**
+
+You can create WordPress Skeletons as a service.
+
 <aside class="warning">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-
-Welcome to the documentation of **api.wpbase.co**
-
-You can create WordPress Skeletons as a service.
 
 Adding <a href="#plugins">Plugins</a>, <a href="#themes">Themes</a> or <a href="#configs">Configs</a>.
 
