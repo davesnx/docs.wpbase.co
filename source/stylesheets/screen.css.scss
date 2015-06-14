@@ -40,20 +40,45 @@ html, body {
 #header {
   background-color: $green;
   height: $header-height;
-  padding: 0px 25px;
+  padding: 0px 0px;
   position: fixed;
   width: 100%;
   z-index: 100;
 }
 
 .logo {
-  margin: 19px 0px 0px 0px;
+  margin: 0px;
   font-family: $font;
   font-weight: 400;
-  display: inline-block;
+  display: block;
+  padding: 20px;
   color: white;
   cursor: pointer;
   float: left;
+  padding-right: 0px;
+}
+.logo-header{
+  height: 80px;
+  display: block;
+  width: $nav-width;
+  float: left;
+}
+
+.version {
+  display: inline-block;
+  margin: 0;
+  padding-top: 30px;
+  padding-left: 20px;
+  h2 {
+    margin: 0px;
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 3px 5px;
+    border-radius: 3px;
+    color: white;
+  }
 }
 
 #toc {
@@ -66,14 +91,22 @@ html, body {
 }
 
 .navegation {
+  width: auto;
   float: left;
+  display: inline-block;
+  margin-left: 30px;
+  margin-top: 30px;
+  padding: 0;
   ul {
     list-style: none;
-    margin-top: 31px;
-    margin-left: 19px;
+    margin: 0;
+    padding: 0;
     li {
       float: left;
       padding: 0px 15px;
+      &:first-child{
+        padding-left: 0px;
+      }
       a {
         color: white;
         text-decoration: none;
@@ -627,11 +660,14 @@ html, body {
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
-    @include text-shadow(0 1px 0 lighten($aside-notice-bg, 15%));
+    
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+
+    color: white;
+    text-shadow: none;
 
     &.warning {
       background-color: $aside-warning-bg;
