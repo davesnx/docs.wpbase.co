@@ -12,11 +12,10 @@
       extendPage: false,
       theme: 'none',
       smoothScroll: false,
-      showEffectSpeed: 0,
       hideEffectSpeed: 180,
       ignoreSelector: '.toc-ignore',
-      highlightOffset: 60,
-      scrollTo: -1,
+      highlightOffset: 150,
+      scrollTo: 100,
       scrollHistory: true,
       hashGenerator: function (text, element) {
         return element.prop('id');
@@ -45,4 +44,8 @@
   $(animate);
 
 })(window);
+
+$(function() {
+  $('#tocify-header0 li a').text('docs.wpbase.co');
+});
 
