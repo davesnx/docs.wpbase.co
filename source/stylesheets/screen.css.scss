@@ -39,11 +39,12 @@ html, body {
 
 #header {
   background-color: $green;
-  height: $header-height;
+  height: $header-height - 1;
   padding: 0px 0px;
   position: fixed;
   width: 100%;
   z-index: 100;
+  border-bottom: 1px solid #66BA44;
 }
 
 .logo {
@@ -675,7 +676,8 @@ html, body {
     line-height: 1.6;
 
     color: white;
-    text-shadow: none;
+    font-size: 14px;
+    text-shadow: none !important;
 
     &.warning {
       background-color: $aside-warning-bg;

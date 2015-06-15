@@ -18,14 +18,28 @@ search: false
 
 Welcome to the documentation of **api.wpbase.co**
 
-You can create WordPress Skeletons as a service.
+I'm currently developing the API and I want to make it simple and usefull for all wordpress developers.
 
 <aside class="warning">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+<!-- Añadir logo slack -->
+If you want to give feedback/help/love about the project you can join the <a href="#">Slack</a> or <a href="#">discuss.wpbase.co</a>
 </aside>
 
+## What is wpbase?
 
-Adding <a href="#plugins">Plugins</a>, <a href="#themes">Themes</a> or <a href="#configs">Configs</a>.
+**wpbase** is a API for create WordPress Skeletons as a service. With only a request you can build a instalation of WordPress with what <a href="#plugins">plugins</a> you want and also <a href="#themes">themes</a>, and soon... <a href="#configs">configs</a>, you can choose the version, etc..
+
+Soon you will can do:
+<ul>
+<li>Upload via FTP to a Server</li>
+<li>Choose user/password of wp-admin</li>
+<li>Set up the Post Types</li>
+<li>etc...</li>
+</ul>
+
+This API are made for developers, if you aren't or just want to try it. I create <a href="http://wpbase.com">wpbase.com</a> for doing the same job in a easy way. 
+
+## Getting started
 
 # Authentication
 
